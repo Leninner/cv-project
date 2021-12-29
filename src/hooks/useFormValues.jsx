@@ -12,6 +12,7 @@ export const useFormValues = () => {
       cargo: cargo.value,
       email: email.value,
       telefono: telefono.value,
+      experiencia: [],
     });
   };
 

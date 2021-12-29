@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/Header';
 import { FormComponent } from './components/Form';
 import { FormContext } from './context/FormContext';
 import { useFormValues } from './hooks/useFormValues';
+import { Prueba } from './components/Prueba';
 
 export const CvApp = () => {
   const initialState = useFormValues();
@@ -13,6 +14,7 @@ export const CvApp = () => {
       <GlobalStyles />
       <HeaderComponent />
       <FormComponent />
+      <Prueba />
     </FormContext.Provider>
   );
 };
