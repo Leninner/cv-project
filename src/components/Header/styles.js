@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fadeIn } from '../../styles/Animations';
+import { transitionXAnimation } from '../../styles/Animations';
 
 export const Header = styled.header`
   postion: fixed;
@@ -66,7 +66,7 @@ export const NavMobile = styled.nav`
   background-color: #1d1d1f;
   width: 50%;
   height: 100vh;
-  ${fadeIn()};
+  ${transitionXAnimation()};
 
   ul {
     list-style: none;

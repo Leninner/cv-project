@@ -1,18 +1,16 @@
 import { css, keyframes } from 'styled-components';
 
-const fadeInKeyframes = keyframes`
+const transitionX = keyframes`
   from {
-    filter: blur(5px);
-    opacity: 0;
+    transform: translateX(100%);
   }
 
   to {
-    filter: blur(0);
-    opacity: 1;
+    transform: translateX(0);
   }
 `;
 
-export const fadeIn = ({ time = '0.3s' } = {}) =>
+export const transitionXAnimation = ({ time = '0.3s' } = {}) =>
   css`
-    animation: ${time} ${fadeInKeyframes};
+    animation: ${time} ${transitionX};
   `;
