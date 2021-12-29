@@ -45,3 +45,9 @@ export const Button = styled.button`
   font-size: 16px;
   cursor: pointer;
 `;
+
+export const Items = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
