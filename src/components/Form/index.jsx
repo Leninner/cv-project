@@ -15,6 +15,8 @@ export const FormComponent = () => {
   const telefono = useInputValue('');
   const empresa = useInputValue('');
   const descripcion = useInputValue('');
+  const colegio = useInputValue('');
+  const titulo = useInputValue('');
 
   const [experiencies, setExperiencies] = useState([]);
 
@@ -120,7 +122,35 @@ export const FormComponent = () => {
             </Items>
           );
         })}
-        <Button onClick={handleAddExperiencia}>Add</Button>
+        <Button onClick={handleAddExperiencia}>Add Experience</Button>
+      </Label>
+      <Label htmlFor=''>
+        Educación:
+        <Items>
+          <div>
+            <Label htmlFor='colegio'>
+              Entidad Educativa:
+              <Input type='text' placeholder='Entidad Educativa' {...colegio} id='colegio' />
+            </Label>
+            <Label htmlFor='degree'>
+              Título Obtenido:
+              <Input type='text' placeholder='Titulo Obtenido' {...titulo} id='degree' />
+            </Label>
+          </div>
+
+          <div>
+            <Label>
+              Fecha Inicio:
+              <Input type='date' name='' id='' />
+            </Label>
+
+            <Label>
+              Fecha Fin:
+              <Input type='date' name='' id='' />
+            </Label>
+          </div>
+        </Items>
+        <Button onClick={handleAddExperiencia}>Add Education</Button>
       </Label>
       <Button>Aceptar</Button>
     </Form>

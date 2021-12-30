@@ -67,6 +67,7 @@ export const NavMobile = styled.nav`
   width: 50%;
   height: 100vh;
   ${transitionXAnimation()};
+  z-index: 1;
 
   ul {
     list-style: none;
