@@ -15,7 +15,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  width: 100%;
+  width: 95%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -25,6 +25,12 @@ export const Input = styled.input`
   &:focus {
     border-color: #4d85ee;
     box-shadow: 0 0 10px rgba(77, 133, 238, 0.5);
+    outline: none;
+    background-color: rgba(77, 133, 238, 0.2);
+  }
+
+  &[disabled] {
+    background-color: #e2ece9;
   }
 `;
 
@@ -49,5 +55,19 @@ export const Button = styled.button`
 export const Items = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  position: relative;
+
+  .icons {
+    position: absolute;
+    bottom: 0;
+    right: calc(50% - 25px);
+  }
 `;
