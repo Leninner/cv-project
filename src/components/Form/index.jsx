@@ -6,6 +6,7 @@ import { ItemsToEdit } from '../ItemsToEdit';
 
 export const FormComponent = () => {
   const { formValues, setFormValues } = useContext(FormContext);
+  const [experience, setExperience] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,15 +18,12 @@ export const FormComponent = () => {
     setFormValues({ ...formValues, experiences: [...formValues.experiences, value] });
   };
 
-  const [experience, setExperience] = useState({});
-
   const handleChangeExperience = (e) => {
     const { name, value } = e.target;
     setExperience({ ...experience, [name]: value });
   };
 
   console.log(experience);
-  console.log(formValues);
 
   return (
     <Form>
@@ -66,7 +64,7 @@ export const FormComponent = () => {
         <Button onClick={(e) => handleAddExperience(e, experience)}>Agregar Experiencia</Button>
 
         {formValues.experiences.map((exp, index) => {
-          return <ItemsToEdit key={index} onChange={handleChangeExperience} {...exp} />;
+          return <ItemsToEdit key={index} {...exp} />;
         })}
 
         <Label htmlFor=''>

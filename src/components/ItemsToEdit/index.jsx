@@ -1,39 +1,41 @@
 import { Label, Input, Items } from '../Form/styles';
+import { TextArea } from '../ItemExperience/styles.js';
+import { AiFillEdit } from 'react-icons/ai';
+import { useState } from 'react';
 
-export const ItemsToEdit = ({ onChange, empresa, cargo, inicio, fin, descripcion }) => {
+export const ItemsToEdit = ({ empresa, cargo, inicio, descripcion }) => {
+  const [edit, setEdit] = useState(true);
+  const handleEdit = () => setEdit(!edit);
+
   return (
     <Label>
       Experiencia:
       <Items>
         <div>
-          <Label htmlFor='empresa'>
-            Empresa:
-            <Input
-              type='text'
-              placeholder='Empresa'
-              id='empresa'
-              {...onChange}
-              name='empresa'
-              value={empresa}
-              disabled
-            />
+          <Label htmlFor='Cargo'>
+            Cargo:
+            <Input type='text' placeholder='Cargo' id='Cargo' name='Cargo' value={cargo} disabled={edit} />
           </Label>
           <Label htmlFor='empresa'>
-            Descripción:
-            <Input type='text' placeholder='Descripción' {...onChange} name='descripcion' value={descripcion} />
+            Empresa:
+            <Input type='text' placeholder='Empresa' name='Empresa' value={empresa} disabled={edit} />
           </Label>
         </div>
 
         <div>
           <Label htmlFor='inicio'>
             Fecha Inicio:
-            <Input type='date' name='inicio' id='inicio' {...onChange} value={inicio} />
+            <Input type='date' name='inicio' id='inicio' value={inicio} disabled={edit} />
           </Label>
+        </div>
 
-          <Label htmlFor='fin'>
-            Fecha Fin:
-            <Input type='date' name='fin' id='fin' {...onChange} value={fin} />
-          </Label>
+        <Label htmlFor='descripcion'>
+          Descripción:
+          <TextArea type='text' name='descripcion' id='descripcion' value={descripcion} disabled={edit} />
+        </Label>
+
+        <div>
+          <AiFillEdit onClick={handleEdit} />
         </div>
       </Items>
     </Label>

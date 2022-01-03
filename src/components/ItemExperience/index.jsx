@@ -15,38 +15,38 @@ export const ItemExperience = ({ onChange }) => {
           <div>
             <Label htmlFor='Cargo'>
               Cargo:
-              <Input type='text' placeholder='Cargo' id='Cargo' {...onChange} name='Cargo' />
+              <Input type='text' placeholder='Cargo' id='Cargo' onChange={onChange} name='cargo' />
             </Label>
             <Label htmlFor='empresa'>
               Empresa:
-              <Input type='text' placeholder='Empresa' {...onChange} name='Empresa' />
+              <Input type='text' placeholder='Empresa' onChange={onChange} name='empresa' />
             </Label>
           </div>
 
           <div>
             <Label htmlFor='inicio'>
               Fecha Inicio:
-              <Input type='date' name='inicio' id='inicio' {...onChange} />
+              <Input type='date' name='inicio' id='inicio' onChange={onChange} />
             </Label>
 
             {actual && (
               <>
-                {' '}
                 <Label htmlFor='fin'>
                   Fecha Fin:
-                  <Input type='date' name='fin' id='fin' {...onChange} />
+                  <Input type='date' name='fin' id='fin' onChange={onChange} />
                 </Label>
               </>
             )}
 
             <Actual htmlFor='actual' active={actual}>
-              Actualmente en este trabajo <Input type='checkbox' onClick={handleActual} id='actual' />
+              Actualmente en este trabajo{' '}
+              <Input type='checkbox' onClick={handleActual} id='actual' onChange={onChange} />
             </Actual>
           </div>
 
           <Label htmlFor='descripcion'>
             Descripción:
-            <TextArea type='text' name='descripcion' id='descripcion' />
+            <TextArea type='text' name='descripcion' id='descripcion' onChange={onChange} />
           </Label>
         </Items>
       </Label>
