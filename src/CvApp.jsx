@@ -1,20 +1,22 @@
 import React from 'react';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { HeaderComponent } from './components/Header';
-import { FormComponent } from './components/Form';
-import { FormContext } from './context/FormContext';
-import { useFormValues } from './hooks/useFormValues';
-import { Prueba } from './components/Prueba';
+import { FooterComponent } from './components/Footer';
+import { FormContainer } from './container/FormContainer';
+import { CvContainer } from './container/CvContainer';
+import { CvComponentContainer } from './stylesCvApp';
 
 export const CvApp = () => {
-  const initialState = useFormValues();
-
   return (
-    <FormContext.Provider value={initialState}>
+    <>
       <GlobalStyles />
       <HeaderComponent />
-      <FormComponent />
-      <Prueba />
-    </FormContext.Provider>
+      <CvComponentContainer>
+        <FormContainer />
+        <CvContainer />
+      </CvComponentContainer>
+
+      <FooterComponent />
+    </>
   );
 };
