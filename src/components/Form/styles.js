@@ -14,6 +14,20 @@ export const Form = styled.form`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
+export const MainInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+
 export const Input = styled.input`
   width: 95%;
   padding: 10px;
@@ -27,6 +41,12 @@ export const Input = styled.input`
     box-shadow: 0 0 10px rgba(77, 133, 238, 0.5);
     outline: none;
     background-color: rgba(77, 133, 238, 0.2);
+  }
+
+  &[type='checkbox'] {
+    width: auto;
+    outline: none;
+    margin-left: 10px;
   }
 
   &[disabled] {
@@ -53,9 +73,6 @@ export const Button = styled.button`
 `;
 
 export const Items = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   max-width: 500px;
   margin: 10px auto;
@@ -64,10 +81,4 @@ export const Items = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
   position: relative;
-
-  .icons {
-    position: absolute;
-    bottom: 0;
-    right: calc(50% - 25px);
-  }
 `;

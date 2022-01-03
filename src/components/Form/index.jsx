@@ -1,157 +1,103 @@
-import { useInputValue } from '../../hooks/useInputValues';
 import { FormContext } from '../../context/FormContext';
 import { useContext, useState } from 'react';
-import { Form, Button, Input, Label, Items } from './styles';
-import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
+import { Form, Button, Input, Label, Items, MainInfo } from './styles';
+import { ItemExperience } from '../ItemExperience';
+import { ItemsToEdit } from '../ItemsToEdit';
 
 export const FormComponent = () => {
-  const { handleSubmit } = useContext(FormContext);
-  const [edit, setEdit] = useState(true);
+  const { formValues, setFormValues } = useContext(FormContext);
 
-  const nombre = useInputValue('');
-  const apellido = useInputValue('');
-  const cargo = useInputValue('');
-  const email = useInputValue('');
-  const telefono = useInputValue('');
-  const empresa = useInputValue('');
-  const descripcion = useInputValue('');
-  const colegio = useInputValue('');
-  const titulo = useInputValue('');
-
-  const [experiencies, setExperiencies] = useState([]);
-
-  const handleAddExperiencia = () => {
-    setExperiencies([...experiencies, { empresa, descripcion }]);
-    empresa.onChange({ target: { value: '' } });
-    descripcion.onChange({ target: { value: '' } });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleDelete = (index) => {
-    const newExperiencies = [...experiencies];
-    newExperiencies.splice(index, 1);
-    setExperiencies(newExperiencies);
+  const handleAddExperience = (e, value) => {
+    e.preventDefault();
+    setFormValues({ ...formValues, experiences: [...formValues.experiences, value] });
   };
 
-  const handleEdit = () => {
-    setEdit(!edit);
+  const [experience, setExperience] = useState({});
+
+  const handleChangeExperience = (e) => {
+    const { name, value } = e.target;
+    setExperience({ ...experience, [name]: value });
   };
+
+  console.log(experience);
+  console.log(formValues);
 
   return (
-    <Form onSubmit={(e) => handleSubmit(e, nombre, apellido, cargo, email, telefono)}>
+    <Form>
       <h2>Llena la información de tu CV</h2>
-      <Label htmlFor='nombre'>
-        Nombre:
-        <Input type='text' placeholder='Nombre' {...nombre} id='nombre' />
-      </Label>
-      <Label htmlFor='apellido'>
-        Apellido:
-        <Input type='text' placeholder='Apellido' {...apellido} id='apellido' />
-      </Label>
-      <Label htmlFor='cargo'>
-        Cargo:
-        <Input type='text' placeholder='Cargo' {...cargo} id='cargo' />
-      </Label>
-      <Label htmlFor='email'>
-        Email:
-        <Input type='email' placeholder='Email' {...email} id='email' />
-      </Label>
-      <Label htmlFor='tel'>
-        Teléfono:
-        <Input type='text' placeholder='Teléfono' {...telefono} id='tel' />
-      </Label>
-      <Label htmlFor=''>
-        Experiencia:
-        <Items>
-          <div>
-            <Label htmlFor='empresa'>
-              Empresa:
-              <Input type='text' placeholder='Empresa' {...empresa} id='empresa' />
-            </Label>
-            <Label htmlFor='empresa'>
-              Descripción:
-              <Input type='text' placeholder='Descripción' {...descripcion} />
-            </Label>
-          </div>
+      <MainInfo>
+        <h1>Información Principal</h1>
+        <Label htmlFor='nombre'>
+          Nombre:
+          <Input type='text' placeholder='Nombre' id='nombre' onChange={handleChange} name='nombre' />
+        </Label>
+        <Label htmlFor='apellido'>
+          Apellido:
+          <Input type='text' placeholder='Apellido' id='apellido' onChange={handleChange} name='apellido' />
+        </Label>
+        <Label htmlFor='cargo'>
+          Cargo:
+          <Input type='text' placeholder='Cargo' id='cargo' onChange={handleChange} name='cargo' />
+        </Label>
+        <Label htmlFor='email'>
+          Email:
+          <Input type='email' placeholder='Email' id='email' onChange={handleChange} name='email' />
+        </Label>
+        <Label htmlFor='tel'>
+          Teléfono:
+          <Input type='text' placeholder='Teléfono' id='tel' onChange={handleChange} name='telefono' />
+        </Label>
+        <Label htmlFor='linkedin'>
+          Linkedin:
+          <Input type='text' placeholder='Link to LikedIn' id='linkedin' onChange={handleChange} name='linkedin' />
+        </Label>
+      </MainInfo>
 
-          <div>
-            <Label>
-              Fecha Inicio:
-              <Input type='date' name='' id='' />
-            </Label>
+      <div>
+        <h1>Información Complementaria</h1>
 
-            <Label>
-              Fecha Fin:
-              <Input type='date' name='' id='' />
-            </Label>
-          </div>
-        </Items>
-        {experiencies.map((experiencia, index) => {
-          const { empresa, descripcion } = experiencia;
+        <ItemExperience onChange={handleChangeExperience} />
 
-          console.log(empresa, descripcion);
+        <Button onClick={(e) => handleAddExperience(e, experience)}>Agregar Experiencia</Button>
 
-          return (
-            <Items key={index}>
-              <div>
-                <Label htmlFor='empresa'>
-                  Empresa:
-                  <Input type='text' placeholder='Empresa' {...empresa} id='empresa' disabled={edit} />
-                </Label>
-                <Label htmlFor='empresa'>
-                  Descripción:
-                  <Input type='text' placeholder='Descripción' {...descripcion} disabled={edit} />
-                </Label>
-              </div>
-
-              <div>
-                <Label>
-                  Fecha Inicio:
-                  <Input type='date' name='' id='' disabled={edit} />
-                </Label>
-
-                <Label>
-                  Fecha Fin:
-                  <Input type='date' name='' id='' disabled={edit} />
-                </Label>
-              </div>
-
-              <div className='icons'>
-                <AiFillDelete onClick={() => handleDelete(index)} size='25' />
-                <AiFillEdit onClick={handleEdit} size='25' />
-              </div>
-            </Items>
-          );
+        {formValues.experiences.map((exp, index) => {
+          return <ItemsToEdit key={index} onChange={handleChangeExperience} {...exp} />;
         })}
-        <Button onClick={handleAddExperiencia}>Add Experience</Button>
-      </Label>
-      <Label htmlFor=''>
-        Educación:
-        <Items>
-          <div>
-            <Label htmlFor='colegio'>
-              Entidad Educativa:
-              <Input type='text' placeholder='Entidad Educativa' {...colegio} id='colegio' />
-            </Label>
-            <Label htmlFor='degree'>
-              Título Obtenido:
-              <Input type='text' placeholder='Titulo Obtenido' {...titulo} id='degree' />
-            </Label>
-          </div>
 
-          <div>
-            <Label>
-              Fecha Inicio:
-              <Input type='date' name='' id='' />
-            </Label>
+        <Label htmlFor=''>
+          Educación:
+          <Items>
+            <div>
+              <Label htmlFor='colegio'>
+                Entidad Educativa:
+                <Input type='text' placeholder='Entidad Educativa' id='colegio' />
+              </Label>
+              <Label htmlFor='degree'>
+                Título Obtenido:
+                <Input type='text' placeholder='Titulo Obtenido' id='degree' />
+              </Label>
+            </div>
 
-            <Label>
-              Fecha Fin:
-              <Input type='date' name='' id='' />
-            </Label>
-          </div>
-        </Items>
-        <Button onClick={handleAddExperiencia}>Add Education</Button>
-      </Label>
+            <div>
+              <Label>
+                Fecha Inicio:
+                <Input type='date' name='' id='' />
+              </Label>
+
+              <Label>
+                Fecha Fin:
+                <Input type='date' name='' id='' />
+              </Label>
+            </div>
+          </Items>
+        </Label>
+      </div>
+
       <Button>Aceptar</Button>
     </Form>
   );
