@@ -1,5 +1,6 @@
 import { FormMainInfo } from './FormMainInfo';
 import { FormExperience } from './FormExperience';
+import { Button, FormContainer } from './styles';
 
 export const Form = () => {
   const handleSubmit = (e) => {
@@ -8,12 +9,14 @@ export const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormContainer onSubmit={handleSubmit}>
       <h1>Información principal</h1>
       <FormMainInfo />
       <h1>Experiencia</h1>
       <FormExperience />
-      <button>Enviar</button>
-    </form>
+      <div>
+        <Button>Enviar</Button>
+      </div>
+    </FormContainer>
   );
 };
