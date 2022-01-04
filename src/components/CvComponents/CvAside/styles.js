@@ -7,6 +7,10 @@ export const Aside = styled.aside`
   background: #191919;
   position: relative;
   float: right;
+
+  @media (max-width: 768px) {
+    width: 40%;
+  }
 `;
 
 export const Img = styled.img`
@@ -34,6 +38,10 @@ export const SkillSet = styled.div`
   span {
     margin: 10px 0;
   }
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export const SocialContainer = styled.div`
@@ -47,5 +55,17 @@ export const SocialContainer = styled.div`
   a {
     margin: 0 10px;
     color: white;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 125%;
+
+    a {
+      margin: 0 5px;
+    }
+
+    svg {
+      width: 30px;
+    }
   }
 `;

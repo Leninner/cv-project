@@ -9,4 +9,8 @@ export const FooterContainer = styled.div`
   padding: 20px;
   font-size: 0.8rem;
   color: #9e9e9e;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

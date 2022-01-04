@@ -16,6 +16,14 @@ export const Header = styled.header`
   h2 {
     font-weight: normal;
   }
+
+  @media (max-width: 768px) {
+    right: 50px;
+    left: 0;
+    padding: 0 25px;
+    height: 150px;
+    font-size: 0.8rem;
+  }
 `;
 
 export const Circulo = styled.div`
@@ -27,4 +35,8 @@ export const Circulo = styled.div`
   left: -100px;
   top: calc(50% - 100px);
   z-index: -1;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
