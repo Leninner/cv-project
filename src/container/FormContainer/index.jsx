@@ -1,5 +1,10 @@
 import { Container } from './styles';
+import { Form } from '../../components/FormComponents';
 
 export const FormContainer = () => {
-  return <Container>Hola mundito</Container>;
+  return (
+    <Container>
+      <Form />
+    </Container>
+  );
 };

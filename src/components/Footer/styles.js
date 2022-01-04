@@ -7,10 +7,6 @@ export const FooterContainer = styled.div`
   justify-content: center;
   background-color: black;
   padding: 20px;
-  position: absolute;
-  bottom: -60px;
-  left: 0;
-  right: 0;
   font-size: 0.8rem;
   color: #9e9e9e;
 `;

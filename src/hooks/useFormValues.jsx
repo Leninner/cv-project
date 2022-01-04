@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
 export const useFormValues = () => {
-  const [formValues, setFormValues] = useState({
-    experiences: [],
-  });
+  const [edit, setEdit] = useState(false);
 
-  return { formValues, setFormValues };
+  const handleEdit = () => {
+    setEdit(!edit);
+  };
+
+  return { edit, handleEdit };
 };
