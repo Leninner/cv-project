@@ -27,11 +27,25 @@ export const SkillSet = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 250px;
+  margin-top: 15px;
   color: white;
   cursor: default;
 
   span {
     margin: 10px 0;
+  }
+`;
+
+export const SocialContainer = styled.div`
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 250px;
+
+  a {
+    margin: 0 10px;
+    color: white;
   }
 `;
