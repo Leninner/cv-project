@@ -15,6 +15,30 @@ export const Input = styled.input`
   &:focus {
     border: 1px solid #000;
   }
+
+  &[type='button'] {
+    background: #000;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 20%;
+    height: 30px;
+    margin-top: -10px;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+      border: 1px solid #000;
+    }
+  }
+
+  &[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+  }
 `;
 
 export const Label = styled.label`
