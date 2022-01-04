@@ -9,7 +9,9 @@ export const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h1>Información principal</h1>
       <FormMainInfo />
+      <h1>Experiencia</h1>
       <FormExperience />
       <button>Enviar</button>
     </form>
