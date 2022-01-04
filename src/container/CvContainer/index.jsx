@@ -1,5 +1,10 @@
 import { Container } from './styles';
+import { Cv } from '../../components/CvComponents';
 
 export const CvContainer = () => {
-  return <Container>Leninner</Container>;
+  return (
+    <Container>
+      <Cv />
+    </Container>
+  );
 };
