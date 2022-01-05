@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const Aside = styled.aside`
   width: 30%;
   min-height: 100vh;
-  height: 100%;
   background: #191919;
   position: relative;
+  bottom: 0;
   float: right;
 
   @media (max-width: 768px) {

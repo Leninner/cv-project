@@ -27,8 +27,6 @@ export const CvAside = () => {
         <span>Node.js</span>
         <span>Express</span>
         <span>React</span>
-        <span>Node.js</span>
-        <span>Express</span>
       </SkillSet>
     </Aside>
   );
