@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Description = styled.div`
+export const BoxModel = styled.div`
   font-size: 1rem;
   margin: 0.7rem 20px;
   padding: 0 1rem;

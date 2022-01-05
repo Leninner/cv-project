@@ -1,10 +1,16 @@
 import { CvDescription } from '../CvDescription';
 import { CvInfoContainer } from './styles';
+import { CvExperience } from '../CvExperience';
+import { CvEducation } from '../CvEducation';
+import { CvCertifications } from '../CvCertifications';
 
-export const CvInfo = ({ height }) => {
+export const CvInfo = () => {
   return (
-    <CvInfoContainer height={height}>
+    <CvInfoContainer>
       <CvDescription />
+      <CvExperience />
+      <CvEducation />
+      <CvCertifications />
     </CvInfoContainer>
   );
 };

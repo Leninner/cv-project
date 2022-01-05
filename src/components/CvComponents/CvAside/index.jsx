@@ -1,5 +1,6 @@
 import { Aside, Img, SkillSet, SocialContainer } from './styles';
 import { AiFillGithub, AiFillLinkedin, AiFillTwitterCircle } from 'react-icons/ai';
+import { CvSkillsItem } from '../CvSkillsItem';
 
 export const CvAside = () => {
   const SIZE = 40;
@@ -23,10 +24,13 @@ export const CvAside = () => {
       </SocialContainer>
       <SkillSet>
         <h3>Professional Skills</h3>
-        <span>React</span>
-        <span>Node.js</span>
-        <span>Express</span>
-        <span>React</span>
+        <CvSkillsItem text='React' />
+        <CvSkillsItem text='NodeJs' />
+        <CvSkillsItem text='Inglés' />
+        <CvSkillsItem text='Cantar' />
+        <CvSkillsItem text='Productividad' />
+        <CvSkillsItem text='Trabajo en Equipo' />
+        <CvSkillsItem text='Francés' />
       </SkillSet>
     </Aside>
   );
