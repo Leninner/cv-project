@@ -20,7 +20,7 @@ export const Img = styled.img`
   border: 10px solid #191919;
   object-fit: cover;
   position: absolute;
-  top: 25px;
+  top: 15px;
   left: -40px;
 `;
 

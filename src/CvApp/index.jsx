@@ -5,18 +5,24 @@ import { FooterComponent } from '../components/Footer';
 import { FormContainer } from '../container/FormContainer';
 import { CvContainer } from '../container/CvContainer';
 import { CvComponentContainer } from './styles';
+import { FormContext } from '../context/FormContext';
+import { useGeneralState } from '../hooks/useGeneralState';
 
 export const CvApp = () => {
+  const initialState = useGeneralState();
+
   return (
     <>
-      <GlobalStyles />
-      <HeaderComponent />
-      <CvComponentContainer>
-        <FormContainer />
-        <CvContainer />
-      </CvComponentContainer>
+      <FormContext.Provider value={initialState}>
+        <GlobalStyles />
+        <HeaderComponent />
+        <CvComponentContainer>
+          <FormContainer />
+          <CvContainer />
+        </CvComponentContainer>
 
-      <FooterComponent />
+        <FooterComponent />
+      </FormContext.Provider>
     </>
   );
 };

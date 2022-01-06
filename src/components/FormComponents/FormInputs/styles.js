@@ -16,6 +16,11 @@ export const Input = styled.input`
     border: 1px solid #000;
   }
 
+  /* propiedad disabled */
+  &:disabled {
+    background: red;
+  }
+
   &[type='button'] {
     background: #000;
     color: #fff;

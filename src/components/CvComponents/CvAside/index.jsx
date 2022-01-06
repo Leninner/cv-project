@@ -2,7 +2,7 @@ import { Aside, Img, SkillSet, SocialContainer } from './styles';
 import { AiFillGithub, AiFillLinkedin, AiFillTwitterCircle } from 'react-icons/ai';
 import { CvSkillsItem } from '../CvSkillsItem';
 
-export const CvAside = () => {
+export const CvAside = ({ email, tel, linkedIn, github, twitter }) => {
   const SIZE = 40;
 
   return (
@@ -12,16 +12,18 @@ export const CvAside = () => {
         alt='Imagen'
       />
       <SocialContainer>
-        <a href='/' target='_blank' rel='noreferrer'>
+        <a href={github} target='_blank' rel='noreferrer'>
           <AiFillGithub size={SIZE} />
         </a>
-        <a href='/' target='_blank' rel='noreferrer'>
+        <a href={linkedIn} target='_blank' rel='noreferrer'>
           <AiFillLinkedin size={SIZE} />
         </a>
-        <a href='/' target='_blank' rel='noreferrer'>
+        <a href={twitter} target='_blank' rel='noreferrer'>
           <AiFillTwitterCircle size={SIZE} />
         </a>
       </SocialContainer>
+      <span>{email}</span>
+      <span>{tel}</span>
       <SkillSet>
         <h3>Professional Skills</h3>
         <CvSkillsItem text='React' />
