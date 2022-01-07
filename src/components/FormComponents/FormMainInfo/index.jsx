@@ -6,9 +6,7 @@ import { FormContext } from '../../../context/FormContext';
 
 export const FormMainInfo = () => {
   const { generalState, setGeneralState } = useContext(FormContext);
-
   const [mainInfoValues, setMainInfoValues] = useState({});
-
   const [isDisabled, setIsDisabled] = useState(false);
   const [edit, setEdit] = useState(false);
 
@@ -24,8 +22,6 @@ export const FormMainInfo = () => {
     });
     setIsDisabled(true);
   };
-
-  console.log(generalState);
 
   const handleEdit = () => {
     setEdit(true);
