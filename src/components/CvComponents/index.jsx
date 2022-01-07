@@ -19,7 +19,7 @@ export const Cv = () => {
       <CvHeader name={name} lastName={lastName} cargo={cargo} />
       <CvAside email={email} tel={tel} linkedIn={linkedIn} github={github} twitter={twitter} />
       <CvInfo>
-        <CvDescription descripcion={description} />
+        <CvDescription description={description} />
         <CvExperience />
         <CvEducation />
         <CvCertifications />
