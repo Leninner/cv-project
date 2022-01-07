@@ -26,7 +26,11 @@ export const FormExperience = () => {
       ...generalState,
       experienceValues: [...generalState.experienceValues, experience],
     });
+    setExperience({ current: false });
+    setCurrent(false);
   };
+
+  console.log(experience);
 
   return (
     <>
@@ -45,13 +49,24 @@ export const FormExperience = () => {
         value={experience.company || ''}
       />
       <FormInputs type='date' name='startDate' placeholder='Start Date' onChange={handleChange} />
-      <FormInputs type='checkbox' name='current' placeholder='Trabajo Actual' onClick={handleCurrent} />
+      <FormInputs
+        type='checkbox'
+        name='current'
+        placeholder='Trabajo Actual'
+        onClick={handleCurrent}
+        checked={current}
+      />
 
       {!current && <FormInputs type='date' name='endDate' placeholder='End Date' onChange={handleChange} />}
 
       <Label>
         Descripción:
-        <TextArea name='description' placeholder='Description' onChange={handleChange} value={experience.description} />
+        <TextArea
+          name='description'
+          placeholder='Description'
+          onChange={handleChange}
+          value={experience.description || ''}
+        />
       </Label>
 
       <FormInputs type='button' value='Add' onClick={handleAddExperience} />
