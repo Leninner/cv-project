@@ -53,7 +53,7 @@ export const FormExperience = () => {
         type='checkbox'
         name='current'
         placeholder='Trabajo Actual'
-        onClick={handleCurrent}
+        onChange={handleCurrent}
         checked={current}
       />
 
