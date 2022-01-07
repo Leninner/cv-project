@@ -39,6 +39,13 @@ export const Input = styled.input`
     }
   }
 
+  &[type='number'] {
+    width: 20%;
+    height: 30px;
+    margin-top: -10px;
+    margin-left: 20px;
+  }
+
   &[type='checkbox'] {
     width: 20px;
     height: 20px;

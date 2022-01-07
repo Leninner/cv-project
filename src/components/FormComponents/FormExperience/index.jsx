@@ -1,27 +1,60 @@
 import { FormInputs } from '../FormInputs';
 import { Label } from '../FormInputs/styles';
 import { TextArea } from './styles';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { FormContext } from '../../../context/FormContext';
 
 export const FormExperience = () => {
+  const { generalState, setGeneralState } = useContext(FormContext);
   const [current, setCurrent] = useState(false);
+  const [experience, setExperience] = useState({
+    current: false,
+  });
 
-  const handleCurrent = () => setCurrent(!current);
+  const handleCurrent = () => {
+    setExperience({ ...experience, current: !current });
+    setCurrent(!current);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setExperience({ ...experience, [name]: value });
+  };
+
+  const handleAddExperience = () => {
+    setGeneralState({
+      ...generalState,
+      experienceValues: [...generalState.experienceValues, experience],
+    });
+  };
 
   return (
     <>
-      <FormInputs type='text' name='company' placeholder='Company' />
-      <FormInputs type='text' name='job' placeholder='Job' />
-      <FormInputs type='date' name='startDate' placeholder='Start Date' />
+      <FormInputs
+        type='text'
+        name='position'
+        placeholder='Position'
+        onChange={handleChange}
+        value={experience.position || ''}
+      />
+      <FormInputs
+        type='text'
+        name='company'
+        placeholder='Company'
+        onChange={handleChange}
+        value={experience.company || ''}
+      />
+      <FormInputs type='date' name='startDate' placeholder='Start Date' onChange={handleChange} />
       <FormInputs type='checkbox' name='current' placeholder='Trabajo Actual' onClick={handleCurrent} />
 
-      {!current && <FormInputs type='date' name='endDate' placeholder='End Date' />}
+      {!current && <FormInputs type='date' name='endDate' placeholder='End Date' onChange={handleChange} />}
 
       <Label>
         Descripción:
-        <TextArea name='description' placeholder='Description' />
+        <TextArea name='description' placeholder='Description' onChange={handleChange} value={experience.description} />
       </Label>
-      <FormInputs type='button' value='Add' />
+
+      <FormInputs type='button' value='Add' onClick={handleAddExperience} />
     </>
   );
 };

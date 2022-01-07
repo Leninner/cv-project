@@ -8,6 +8,20 @@ export const BoxModel = styled.div`
   width: 95%;
   z-index: 1;
 
+  h3 {
+    font-size: 1.3rem;
+    color: #ffb001;
+  }
+
+  h4 {
+    font-size: 1.05rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+    color: #2a9d8f;
+  }
+
   p {
     color: grey;
   }

@@ -3,6 +3,7 @@ import { FormExperience } from './FormExperience';
 import { Button, FormContainer } from './styles';
 import { FormEducation } from './FormEducation';
 import { FormSkills } from './FormSkills';
+import { FormCertifications } from './FormCertifications';
 
 export const Form = () => {
   const handleSubmit = (e) => {
@@ -18,6 +19,8 @@ export const Form = () => {
       <FormExperience />
       <h1>Education</h1>
       <FormEducation />
+      <h1>Certificaciones</h1>
+      <FormCertifications />
       <h1>Skills</h1>
       <FormSkills />
       <div>
