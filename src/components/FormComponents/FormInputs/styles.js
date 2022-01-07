@@ -18,7 +18,7 @@ export const Input = styled.input`
 
   /* propiedad disabled */
   &:disabled {
-    background: red;
+    background: #ccc;
   }
 
   &[type='button'] {
