@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { transitionXAnimation } from '../../styles/Animations';
 
 export const Header = styled.header`
-  postion: fixed;
   padding: 20px 65px;
   background-color: #1d1d1f;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -12,7 +11,7 @@ export const Header = styled.header`
 
   h1 {
     color: white;
-    font-size: 1.5em;
+    font-size: 35px;
   }
 
   .desktop {
@@ -49,6 +48,11 @@ export const Header = styled.header`
 
   @media (max-width: 768px) {
     padding: 20px 35px;
+
+    h1 {
+      font-size: 25px;
+    }
+
     .desktop {
       display: none;
     }
