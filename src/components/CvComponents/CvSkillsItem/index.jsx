@@ -1,3 +1,5 @@
-export const CvSkillsItem = ({ text }) => {
-  return <span>{text}</span>;
+import { SkillItem } from './styles';
+
+export const CvSkillsItem = ({ children }) => {
+  return <SkillItem>{children}</SkillItem>;
 };

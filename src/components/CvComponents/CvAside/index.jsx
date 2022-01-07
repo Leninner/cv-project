@@ -1,9 +1,21 @@
 import { Aside, Img, SkillSet, SocialContainer } from './styles';
-import { AiFillGithub, AiFillLinkedin, AiFillTwitterCircle } from 'react-icons/ai';
+import { AiFillDelete, AiFillGithub, AiFillLinkedin, AiFillTwitterCircle } from 'react-icons/ai';
 import { CvSkillsItem } from '../CvSkillsItem';
+import { useContext } from 'react';
+import { FormContext } from '../../../context/FormContext';
 
 export const CvAside = ({ email, tel, linkedIn, github, twitter }) => {
   const SIZE = 40;
+  const { generalState, setGeneralState } = useContext(FormContext);
+
+  const { skills } = generalState;
+
+  const handleDeleteSkill = (indexSkill) => {
+    setGeneralState({
+      ...generalState,
+      skills: skills.filter((item, index) => index !== indexSkill),
+    });
+  };
 
   return (
     <Aside>
@@ -26,13 +38,14 @@ export const CvAside = ({ email, tel, linkedIn, github, twitter }) => {
       <span>{tel}</span>
       <SkillSet>
         <h3>Professional Skills</h3>
-        <CvSkillsItem text='React' />
-        <CvSkillsItem text='NodeJs' />
-        <CvSkillsItem text='Inglés' />
-        <CvSkillsItem text='Cantar' />
-        <CvSkillsItem text='Productividad' />
-        <CvSkillsItem text='Trabajo en Equipo' />
-        <CvSkillsItem text='Francés' />
+        {skills.map((skill, index) => {
+          return (
+            <CvSkillsItem key={index}>
+              {skill}
+              <AiFillDelete size='15' onClick={() => handleDeleteSkill(index)} />
+            </CvSkillsItem>
+          );
+        })}
       </SkillSet>
     </Aside>
   );
