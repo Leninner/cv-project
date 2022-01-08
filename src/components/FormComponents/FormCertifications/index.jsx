@@ -1,15 +1,9 @@
 import { FormInputs } from '../FormInputs';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { FormContext } from '../../../context/FormContext';
 
 export const FormCertifications = () => {
-  const { handleAdd } = useContext(FormContext);
-  const [certification, setCertification] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCertification({ ...certification, [name]: value });
-  };
+  const { handleAdd, formValues, handleChange } = useContext(FormContext);
 
   return (
     <>
@@ -18,27 +12,23 @@ export const FormCertifications = () => {
         name='credential'
         placeholder='Credential'
         onChange={handleChange}
-        value={certification.credential || ''}
+        value={formValues.credential || ''}
       />
       <FormInputs
         type='text'
         name='company'
         placeholder='Company'
         onChange={handleChange}
-        value={certification.company || ''}
+        value={formValues.company || ''}
       />
       <FormInputs
         type='text'
         name='idCredential'
         placeholder='Id Credential'
         onChange={handleChange}
-        value={certification.idCredential || ''}
+        value={formValues.idCredential || ''}
       />
-      <FormInputs
-        type='button'
-        value='Add'
-        onClick={() => handleAdd('certificationValues', certification, setCertification)}
-      />
+      <FormInputs type='button' value='Add' onClick={() => handleAdd('certificationValues')} />
     </>
   );
 };

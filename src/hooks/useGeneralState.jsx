@@ -9,16 +9,23 @@ export const useGeneralState = () => {
     skills: [],
   });
 
+  const [formValues, setFormValues] = useState({});
+
   const handleDelete = (index, param) => {
     const newValues = [...generalState[param]];
     newValues.splice(index, 1);
     setGeneralState({ ...generalState, [param]: newValues });
   };
 
-  const handleAdd = (param, value, setState) => {
-    setGeneralState({ ...generalState, [param]: [...generalState[param], value] });
-    setState({});
+  const handleAdd = (param) => {
+    setGeneralState({ ...generalState, [param]: [...generalState[param], formValues] });
+    setFormValues({});
   };
 
-  return { generalState, setGeneralState, handleDelete, handleAdd };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  return { generalState, setGeneralState, handleDelete, handleAdd, formValues, handleChange };
 };
