@@ -9,7 +9,9 @@ export const useGeneralState = () => {
     skills: [],
   });
 
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({
+    current: false,
+  });
 
   const handleDelete = (index, param) => {
     const newValues = [...generalState[param]];
@@ -27,5 +29,9 @@ export const useGeneralState = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  return { generalState, setGeneralState, handleDelete, handleAdd, formValues, handleChange };
+  const handleCurrent = () => {
+    setFormValues({ ...formValues, current: !formValues.current });
+  };
+
+  return { generalState, setGeneralState, handleDelete, handleAdd, formValues, handleChange, handleCurrent };
 };
