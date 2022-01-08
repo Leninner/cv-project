@@ -1,6 +1,6 @@
 import { Header, Circulo } from './styles';
 
-export const CvHeader = ({ name, lastName, cargo }) => {
+export const CvHeader = ({ name = 'Lenin', lastName = 'Mazabanda', cargo = 'Frontend Developer' }) => {
   return (
     <Header>
       <Circulo />

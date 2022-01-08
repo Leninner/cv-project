@@ -1,6 +1,6 @@
 import { FormMainInfo } from './FormMainInfo';
 import { FormExperience } from './FormExperience';
-import { Button, FormContainer } from './styles';
+import { FormContainer } from './styles';
 import { FormEducation } from './FormEducation';
 import { FormSkills } from './FormSkills';
 import { FormCertifications } from './FormCertifications';
@@ -23,9 +23,6 @@ export const Form = () => {
       <FormCertifications />
       <h1>Skills</h1>
       <FormSkills />
-      <div>
-        <Button>Enviar</Button>
-      </div>
     </FormContainer>
   );
 };

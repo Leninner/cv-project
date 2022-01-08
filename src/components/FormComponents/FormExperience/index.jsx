@@ -48,7 +48,13 @@ export const FormExperience = () => {
         onChange={handleChange}
         value={experience.company || ''}
       />
-      <FormInputs type='date' name='startDate' placeholder='Start Date' onChange={handleChange} />
+      <FormInputs
+        type='date'
+        name='startDate'
+        placeholder='Start Date'
+        onChange={handleChange}
+        value={experience.startDate || ''}
+      />
       <FormInputs
         type='checkbox'
         name='current'
@@ -57,7 +63,15 @@ export const FormExperience = () => {
         checked={current}
       />
 
-      {!current && <FormInputs type='date' name='endDate' placeholder='End Date' onChange={handleChange} />}
+      {!current && (
+        <FormInputs
+          type='date'
+          name='endDate'
+          placeholder='End Date'
+          onChange={handleChange}
+          value={experience.endDate || ''}
+        />
+      )}
 
       <Label>
         Descripción:

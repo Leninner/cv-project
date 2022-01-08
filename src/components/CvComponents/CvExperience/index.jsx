@@ -23,7 +23,11 @@ export const CvExperience = () => {
 
           return (
             <ContainerInfoExperience key={index}>
-              <AiFillDelete onClick={() => handleDelete(index)} />
+              <div>
+                {' '}
+                <AiFillDelete onClick={() => handleDelete(index)} />
+              </div>
+
               <h3>{position}</h3>
               <h4>{company}</h4>
               <h5>{current ? 'Actual' : `${startDate} - ${endDate}`}</h5>
