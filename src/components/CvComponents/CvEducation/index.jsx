@@ -10,7 +10,7 @@ export const CvEducation = () => {
 
   return (
     <>
-      <h2>Educación</h2>
+      <h2>Education</h2>
       <CvCaja>
         {educationValues.map((education, index) => {
           const { titulo, escuela, startDate, endDate, current } = education;

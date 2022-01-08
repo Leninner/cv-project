@@ -10,7 +10,7 @@ export const CvExperience = () => {
 
   return (
     <>
-      <h2>Experiencia</h2>
+      <h2>Experience</h2>
       <CvCaja>
         {experienceValues.map((experience, index) => {
           const { company, position, startDate, endDate, description, current } = experience;

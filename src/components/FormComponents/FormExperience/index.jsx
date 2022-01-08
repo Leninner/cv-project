@@ -58,7 +58,7 @@ export const FormExperience = () => {
         />
       </Label>
 
-      <FormInputs type='button' value='Add' onClick={() => handleAdd('experienceValue')} />
+      <FormInputs type='button' value='Add' onClick={() => handleAdd('experienceValues')} />
     </>
   );
 };

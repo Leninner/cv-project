@@ -29,7 +29,7 @@ export const FormMainInfo = () => {
       <FormInputs
         type='text'
         name='name'
-        placeholder='Nombre'
+        placeholder='Name'
         value={mainInfoValues.name || ''}
         onChange={handleChange}
         disabled={edit}
@@ -37,7 +37,7 @@ export const FormMainInfo = () => {
       <FormInputs
         type='text'
         name='lastName'
-        placeholder='Apellido'
+        placeholder='Last Name'
         value={mainInfoValues.lastName || ''}
         onChange={handleChange}
         disabled={edit}
@@ -45,7 +45,7 @@ export const FormMainInfo = () => {
       <FormInputs
         type='text'
         name='cargo'
-        placeholder='Cargo'
+        placeholder='Position'
         value={mainInfoValues.cargo || ''}
         onChange={handleChange}
         disabled={edit}
@@ -54,7 +54,7 @@ export const FormMainInfo = () => {
         Descríbete:
         <TextArea
           name='description'
-          placeholder='Describe tu perfil'
+          placeholder='Describe yourself'
           value={mainInfoValues.description || ''}
           onChange={handleChange}
           disabled={edit}
@@ -71,7 +71,7 @@ export const FormMainInfo = () => {
       <FormInputs
         type='tel'
         name='tel'
-        placeholder='Teléfono'
+        placeholder='Phone number'
         value={mainInfoValues.tel || ''}
         onChange={handleChange}
         disabled={edit}
@@ -101,9 +101,9 @@ export const FormMainInfo = () => {
         disabled={edit}
       />
       {edit ? (
-        <FormInputs type='button' name='button' value='Editar' onClick={handleEdit} />
+        <FormInputs type='button' name='button' value='Edit' onClick={handleEdit} />
       ) : (
-        <FormInputs type='button' name='button' value='Aceptar' onClick={handleSubmit} />
+        <FormInputs type='button' name='button' value='Add' onClick={handleSubmit} />
       )}
     </>
   );

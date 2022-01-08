@@ -13,13 +13,13 @@ export const Form = () => {
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <h1>Información principal</h1>
+      <h1>Main Info</h1>
       <FormMainInfo />
-      <h1>Experiencia</h1>
+      <h1>Experience</h1>
       <FormExperience />
       <h1>Education</h1>
       <FormEducation />
-      <h1>Certificaciones</h1>
+      <h1>Certifications</h1>
       <FormCertifications />
       <h1>Skills</h1>
       <FormSkills />

@@ -9,23 +9,23 @@ export const FormEducation = () => {
     <>
       <FormInputs
         name='titulo'
-        label='Título'
+        label='Degree'
         type='text'
-        placeholder='Título'
+        placeholder='Degree'
         value={formValues.titulo || ''}
         onChange={handleChange}
       />
       <FormInputs
         name='escuela'
-        label='Escuela'
+        label='School'
         type='text'
-        placeholder='Escuela'
+        placeholder='School'
         value={formValues.escuela || ''}
         onChange={handleChange}
       />
       <FormInputs
         name='startDate'
-        label='Año'
+        label='Start Date'
         type='date'
         placeholder='Start Date'
         onChange={handleChange}
@@ -41,7 +41,7 @@ export const FormEducation = () => {
       {!formValues.current && (
         <FormInputs
           name='endDate'
-          label='Año'
+          label='End Date'
           type='date'
           placeholder='End Date'
           onChange={handleChange}
