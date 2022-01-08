@@ -13,19 +13,19 @@ export const CvExperience = () => {
       <h2>Experience</h2>
       <CvCaja>
         {experienceValues.map((experience, index) => {
-          const { company, position, startDate, endDate, description, current } = experience;
+          const { company, position, startDateExperience, endDateExperience, descriptionExperience, current } =
+            experience;
 
           return (
             <ContainerInfoExperience key={index}>
               <div>
-                {' '}
                 <AiFillDelete onClick={() => handleDelete(index, 'experienceValues')} />
               </div>
 
               <h3>{position}</h3>
               <h4>{company}</h4>
-              <h5>{current ? 'Actual' : `${startDate} - ${endDate}`}</h5>
-              <p>{description}</p>
+              <h5>{current ? 'Actual' : `${startDateExperience} - ${endDateExperience}`}</h5>
+              <p>{descriptionExperience}</p>
             </ContainerInfoExperience>
           );
         })}
