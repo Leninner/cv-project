@@ -6,16 +6,8 @@ import { FormContext } from '../../../context/FormContext';
 
 export const CvAside = ({ email, tel, linkedIn, github, twitter }) => {
   const SIZE = 40;
-  const { generalState, setGeneralState } = useContext(FormContext);
-
+  const { generalState, handleDelete } = useContext(FormContext);
   const { skills } = generalState;
-
-  const handleDeleteSkill = (indexSkill) => {
-    setGeneralState({
-      ...generalState,
-      skills: skills.filter((item, index) => index !== indexSkill),
-    });
-  };
 
   return (
     <Aside>
@@ -42,7 +34,7 @@ export const CvAside = ({ email, tel, linkedIn, github, twitter }) => {
           return (
             <CvSkillsItem key={index}>
               {skill}
-              <AiFillDelete size='15' onClick={() => handleDeleteSkill(index)} />
+              <AiFillDelete size='15' onClick={() => handleDelete(index, 'skills')} />
             </CvSkillsItem>
           );
         })}

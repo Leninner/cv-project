@@ -9,5 +9,11 @@ export const useGeneralState = () => {
     skills: [],
   });
 
-  return { generalState, setGeneralState };
+  const handleDelete = (index, param) => {
+    const newValues = [...generalState[param]];
+    newValues.splice(index, 1);
+    setGeneralState({ ...generalState, [param]: newValues });
+  };
+
+  return { generalState, setGeneralState, handleDelete };
 };

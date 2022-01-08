@@ -5,15 +5,8 @@ import { AiFillDelete } from 'react-icons/ai';
 import { ContainerInfoExperience } from '../CvExperience/styles';
 
 export const CvEducation = () => {
-  const { generalState, setGeneralState } = useContext(FormContext);
-
+  const { generalState, handleDelete } = useContext(FormContext);
   const { educationValues } = generalState;
-
-  const handleDelete = (index) => {
-    const newEducationValues = [...educationValues];
-    newEducationValues.splice(index, 1);
-    setGeneralState({ ...generalState, educationValues: newEducationValues });
-  };
 
   return (
     <>
@@ -24,7 +17,7 @@ export const CvEducation = () => {
 
           return (
             <ContainerInfoExperience key={index}>
-              <AiFillDelete onClick={() => handleDelete(index)} />
+              <AiFillDelete onClick={() => handleDelete(index, 'educationValues')} />
               <h3>{titulo}</h3>
               <h4>{escuela}</h4>
               <h5>{current ? 'Actual' : `${startDate} - ${endDate}`}</h5>

@@ -5,14 +5,8 @@ import { AiFillDelete } from 'react-icons/ai';
 import { ContainerInfoExperience } from '../CvExperience/styles';
 
 export const CvCertifications = () => {
-  const { generalState, setGeneralState } = useContext(FormContext);
+  const { generalState, handleDelete } = useContext(FormContext);
   const { certificationValues } = generalState;
-
-  const handleDelete = (index) => {
-    const newCertificationValues = [...certificationValues];
-    newCertificationValues.splice(index, 1);
-    setGeneralState({ ...generalState, certificationValues: newCertificationValues });
-  };
 
   return (
     <>
@@ -23,7 +17,7 @@ export const CvCertifications = () => {
 
           return (
             <ContainerInfoExperience key={index}>
-              <AiFillDelete onClick={() => handleDelete(index)} />
+              <AiFillDelete onClick={() => handleDelete(index, 'certificationValues')} />
               <h3>{credential}</h3>
               <h4>{company}</h4>
               <p>{idCredential}</p>

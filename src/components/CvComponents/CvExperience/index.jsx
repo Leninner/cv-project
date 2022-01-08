@@ -5,14 +5,8 @@ import { AiFillDelete } from 'react-icons/ai';
 import { ContainerInfoExperience } from './styles';
 
 export const CvExperience = () => {
-  const { generalState, setGeneralState } = useContext(FormContext);
+  const { generalState, handleDelete } = useContext(FormContext);
   const { experienceValues } = generalState;
-
-  const handleDelete = (index) => {
-    const newExperienceValues = [...experienceValues];
-    newExperienceValues.splice(index, 1);
-    setGeneralState({ ...generalState, experienceValues: newExperienceValues });
-  };
 
   return (
     <>
@@ -25,7 +19,7 @@ export const CvExperience = () => {
             <ContainerInfoExperience key={index}>
               <div>
                 {' '}
-                <AiFillDelete onClick={() => handleDelete(index)} />
+                <AiFillDelete onClick={() => handleDelete(index, 'experienceValues')} />
               </div>
 
               <h3>{position}</h3>
