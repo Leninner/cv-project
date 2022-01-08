@@ -15,5 +15,10 @@ export const useGeneralState = () => {
     setGeneralState({ ...generalState, [param]: newValues });
   };
 
-  return { generalState, setGeneralState, handleDelete };
+  const handleAdd = (param, value, setState) => {
+    setGeneralState({ ...generalState, [param]: [...generalState[param], value] });
+    setState({});
+  };
+
+  return { generalState, setGeneralState, handleDelete, handleAdd };
 };

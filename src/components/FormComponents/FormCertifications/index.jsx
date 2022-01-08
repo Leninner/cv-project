@@ -3,20 +3,12 @@ import { useState, useContext } from 'react';
 import { FormContext } from '../../../context/FormContext';
 
 export const FormCertifications = () => {
-  const { generalState, setGeneralState } = useContext(FormContext);
+  const { handleAdd } = useContext(FormContext);
   const [certification, setCertification] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCertification({ ...certification, [name]: value });
-  };
-
-  const handleAddCertification = () => {
-    setGeneralState({
-      ...generalState,
-      certificationValues: [...generalState.certificationValues, certification],
-    });
-    setCertification({});
   };
 
   return (
@@ -42,7 +34,11 @@ export const FormCertifications = () => {
         onChange={handleChange}
         value={certification.idCredential || ''}
       />
-      <FormInputs type='button' value='Add' onClick={handleAddCertification} />
+      <FormInputs
+        type='button'
+        value='Add'
+        onClick={() => handleAdd('certificationValues', certification, setCertification)}
+      />
     </>
   );
 };
